@@ -5,4 +5,17 @@ package com.mandrake.model;
  */
 public class ApoderadoDTO
 {
+
+    private int idApoderado;
+
+    public int getIdApoderado()
+    {
+        return idApoderado;
+    }
+
+    public void setIdApoderado(int idApoderado)
+    {
+        this.idApoderado = idApoderado;
+    }
+
 }
