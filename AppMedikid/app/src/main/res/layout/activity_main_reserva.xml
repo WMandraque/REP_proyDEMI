@@ -1,0 +1,75 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/fondo">
+
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+
+
+    <Spinner
+        android:id="@+id/spPaciente"
+        android:entries="@array/spPaciente"
+        android:textColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="50px"
+        android:layout_marginLeft="50px"
+        android:layout_marginBottom="40px"
+        android:textAlignment="center"
+    />
+
+    <EditText
+        android:id="@+id/txtFecha"
+        android:textColorHint="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:hint="Fecha de Reserva"
+        android:layout_marginRight="50px"
+        android:layout_marginLeft="50px"
+        android:layout_marginBottom="20px"
+     />
+
+
+
+    <EditText
+        android:id="@+id/txtMotivo"
+        android:textColorHint="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="90px"
+        android:hint="Motivo"
+        android:layout_marginRight="50px"
+        android:layout_marginLeft="50px"
+        android:layout_marginBottom="100px"
+     />
+
+    <Button
+        android:id="@+id/btnReservarCita"
+        android:text="Reservar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="10pt"
+        android:textColor="#ffff"
+        android:textStyle="bold"
+        android:layout_marginRight="50px"
+        android:layout_marginLeft="50px"
+     />
+
+
+
+
+
+
+
+</LinearLayout>

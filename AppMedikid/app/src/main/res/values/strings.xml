@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AppMedikid</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main_principal">Principal</string>
+    <string name="title_activity_main_reserva">Reserva</string>
+    <string name="title_activity_main_atencion">Atencion</string>
+    <string name="title_activity_main_registro">Registro</string>
+</resources>

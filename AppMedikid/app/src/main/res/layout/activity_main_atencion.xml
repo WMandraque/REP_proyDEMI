@@ -1,0 +1,130 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/fondo"
+    >
+
+<!--
+       <ImageView
+           android:id="@+id/imgLogo"
+           android:layout_width="match_parent"
+           android:layout_height="100px"
+           android:src="@drawable/logo"
+           android:layout_marginLeft="20px"
+           android:layout_marginRight="20px"
+
+           /> -->
+
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="50px"
+            android:textAlignment="center"
+            android:entries="@array/spPaciente"
+            android:layout_marginTop="50px"
+            android:layout_marginBottom="50px"
+            />
+
+
+
+
+
+        <TextView
+            android:id="@+id/lblFecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fecha Atencion:"
+            android:textSize="10pt"
+            android:textColor="#fff9ffdf"
+            />
+
+        <EditText
+            android:id="@+id/txtFecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:layout_marginBottom="10px"
+            />
+
+        <TextView
+
+            android:id="@+id/lblMedico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Medico:"
+            android:textSize="10pt"
+            android:textColor="#fff9ffdf"
+
+            />
+
+        <EditText
+            android:id="@+id/txtMedico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            />
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Diagnostico:"
+            android:textSize="10pt"
+            android:id="@+id/textView6"
+            android:textColor="#fff9ffdf"
+            />
+
+        <EditText
+            android:id="@+id/txtDiagnostico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20px"
+            />
+
+        <TextView
+            android:id="@+id/lblReceta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Receta:"
+            android:textSize="10pt"
+            android:textColor="#fff9ffdf"
+            />
+
+        <EditText
+            android:id="@+id/txtReceta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40px"
+            />
+
+
+
+
+        <Button
+            android:id="@+id/btnvolver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Volver"
+            />
+
+
+    </LinearLayout>
+
+</ScrollView>
+
+
+</LinearLayout>
