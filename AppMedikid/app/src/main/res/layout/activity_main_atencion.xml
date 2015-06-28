@@ -1,7 +1,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/fondo"
     >
@@ -18,25 +18,18 @@
            /> -->
 
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <LinearLayout
+
+    <Spinner
+        android:id="@+id/spPaciente"
+        android:entries="@array/spPaciente"
+        android:textColor="@android:color/white"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="match_parent"
-            android:layout_height="50px"
-            android:textAlignment="center"
-            android:entries="@array/spPaciente"
-            android:layout_marginTop="50px"
-            android:layout_marginBottom="50px"
-            />
+        android:layout_height="wrap_content"
+        android:layout_marginRight="50px"
+        android:layout_marginLeft="50px"
+        android:layout_marginBottom="10px"
+        />
 
 
 
@@ -49,6 +42,9 @@
             android:text="Fecha Atencion:"
             android:textSize="10pt"
             android:textColor="#fff9ffdf"
+            android:layout_marginRight="50px"
+            android:layout_marginLeft="50px"
+            android:layout_marginBottom="10px"
             />
 
         <EditText
@@ -56,7 +52,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="date"
-            android:layout_marginBottom="10px"
+            android:layout_marginRight="50px"
+            android:layout_marginLeft="50px"
+            android:layout_marginBottom="30px"
             />
 
         <TextView
@@ -67,7 +65,9 @@
             android:text="Medico:"
             android:textSize="10pt"
             android:textColor="#fff9ffdf"
-
+            android:layout_marginRight="50px"
+            android:layout_marginLeft="50px"
+            android:layout_marginBottom="10px"
             />
 
         <EditText
@@ -75,6 +75,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
+            android:layout_marginRight="50px"
+            android:layout_marginLeft="50px"
+            android:layout_marginBottom="30px"
             />
 
 
@@ -86,13 +89,18 @@
             android:textSize="10pt"
             android:id="@+id/textView6"
             android:textColor="#fff9ffdf"
+            android:layout_marginRight="50px"
+            android:layout_marginLeft="50px"
+            android:layout_marginBottom="10px"
             />
 
         <EditText
             android:id="@+id/txtDiagnostico"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20px"
+            android:layout_marginRight="50px"
+            android:layout_marginLeft="50px"
+            android:layout_marginBottom="30px"
             />
 
         <TextView
@@ -102,13 +110,18 @@
             android:text="Receta:"
             android:textSize="10pt"
             android:textColor="#fff9ffdf"
+            android:layout_marginRight="50px"
+            android:layout_marginLeft="50px"
+            android:layout_marginBottom="10px"
             />
 
         <EditText
             android:id="@+id/txtReceta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="40px"
+            android:layout_marginRight="50px"
+            android:layout_marginLeft="50px"
+            android:layout_marginBottom="30px"
             />
 
 
@@ -119,12 +132,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Volver"
+            android:textColor="@android:color/black"
+            android:textSize="10pt"
+            android:textStyle="bold"
+            android:layout_marginRight="25px"
+            android:layout_marginLeft="25px"
             />
 
-
-    </LinearLayout>
-
-</ScrollView>
 
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.mandrake.appmedikid;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -9,9 +10,9 @@ import android.view.View;
 import android.widget.Button;
 
 
-public class MainPrincipal extends ActionBarActivity
+public class MainPrincipal extends Activity
 {
-    private Button btnSalir, btnReserva, btnAtencion;
+    private Button  btnReserva, btnAtencion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -19,7 +20,6 @@ public class MainPrincipal extends ActionBarActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_principal);
 
-        btnSalir=(Button)findViewById(R.id.btnSalir);
         btnReserva=(Button)findViewById(R.id.btnReserva);
         btnAtencion=(Button)findViewById(R.id.btnAtencion);
     }
@@ -29,12 +29,7 @@ public class MainPrincipal extends ActionBarActivity
     {
         super.onResume();
 
-        btnSalir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainPrincipal.this, MainLogin.class));
-            }
-        });
+
 
 
         btnReserva.setOnClickListener(new View.OnClickListener() {

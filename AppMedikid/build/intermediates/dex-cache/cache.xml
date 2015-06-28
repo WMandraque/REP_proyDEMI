@@ -2,32 +2,39 @@
 <items version="2" >
 
     <item
-        jar="E:\CIBERTEC\AppMedikid\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\jars\libs\internal_impl-22.0.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="E:\CIBERTEC\AppMedikid\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-a1bfdea3d3657a38025d407f0ffefe228fd9daac.jar" />
-    </item>
-    <item
-        jar="E:\CIBERTEC\AppMedikid\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.0.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
-        <dex dex="E:\CIBERTEC\AppMedikid\app\build\intermediates\pre-dexed\debug\classes-1775f04b16b36093fc6eb88e6402ef8677242240.jar" />
-    </item>
-    <item
-        jar="E:\CIBERTEC\AppMedikid\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="E:\CIBERTEC\AppMedikid\app\build\intermediates\pre-dexed\debug\classes-39a590c91ca1721ad1e18b73fc6868a64266c465.jar" />
-    </item>
-    <item
         jar="C:\Users\Mandrake\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.0.0\support-annotations-22.0.0.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
-        <dex dex="E:\CIBERTEC\AppMedikid\app\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-e30fc407704ad2668144c6d4e0a98cbd1e5d6311.jar" />
+        <dex dex="D:\GIT_Repositorios\REP_proyDEMI\AppMedikid\app\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-e30fc407704ad2668144c6d4e0a98cbd1e5d6311.jar" />
+    </item>
+    <item
+        jar="D:\GIT_Repositorios\REP_proyDEMI\AppMedikid\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
+        <dex dex="D:\GIT_Repositorios\REP_proyDEMI\AppMedikid\app\build\intermediates\pre-dexed\debug\classes-5b1dc1897f5ac3c4e979513a87404074cef8e33e.jar" />
+    </item>
+    <item
+        jar="D:\GIT_Repositorios\REP_proyDEMI\AppMedikid\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
+        <dex dex="D:\GIT_Repositorios\REP_proyDEMI\AppMedikid\app\build\intermediates\pre-dexed\debug\classes-b0c0655b52fcbcc6f254984bc4e4c7a8bee32baf.jar" />
+    </item>
+    <item
+        jar="D:\GIT_Repositorios\REP_proyDEMI\AppMedikid\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\jars\libs\internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
+        <dex dex="D:\GIT_Repositorios\REP_proyDEMI\AppMedikid\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-fee263672da974afbee07a0c10497d18b09e6cdf.jar" />
+    </item>
+    <item
+        jar="D:\GIT_Repositorios\REP_proyDEMI\AppMedikid\app\libs\volley.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="da98f3cd7d2a881902cfacfc2c15d9b5ed604c19">
+        <dex dex="D:\GIT_Repositorios\REP_proyDEMI\AppMedikid\app\build\intermediates\pre-dexed\debug\volley-80d5d25962cf03bbc65d9a1b3dbbf321ec17493e.jar" />
     </item>
 
 </items>

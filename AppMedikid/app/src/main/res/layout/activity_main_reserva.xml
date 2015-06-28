@@ -52,6 +52,7 @@
         android:layout_marginRight="50px"
         android:layout_marginLeft="50px"
         android:layout_marginBottom="100px"
+        android:layout_alignBottom="@+id/txtUduario" />
      />
 
     <Button
@@ -60,10 +61,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="10pt"
-        android:textColor="#ffff"
+        android:textColor="@android:color/black"
         android:textStyle="bold"
-        android:layout_marginRight="50px"
-        android:layout_marginLeft="50px"
+        android:layout_marginRight="25px"
+        android:layout_marginLeft="25px"
      />
 
 
