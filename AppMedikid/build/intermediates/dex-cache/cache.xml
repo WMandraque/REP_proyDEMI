@@ -2,39 +2,39 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Mandrake\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.0.0\support-annotations-22.0.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
-        <dex dex="D:\GIT_Repositorios\REP_proyDEMI\AppMedikid\app\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-e30fc407704ad2668144c6d4e0a98cbd1e5d6311.jar" />
-    </item>
-    <item
-        jar="D:\GIT_Repositorios\REP_proyDEMI\AppMedikid\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="D:\GIT_Repositorios\REP_proyDEMI\AppMedikid\app\build\intermediates\pre-dexed\debug\classes-5b1dc1897f5ac3c4e979513a87404074cef8e33e.jar" />
-    </item>
-    <item
-        jar="D:\GIT_Repositorios\REP_proyDEMI\AppMedikid\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.0.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
-        <dex dex="D:\GIT_Repositorios\REP_proyDEMI\AppMedikid\app\build\intermediates\pre-dexed\debug\classes-b0c0655b52fcbcc6f254984bc4e4c7a8bee32baf.jar" />
-    </item>
-    <item
-        jar="D:\GIT_Repositorios\REP_proyDEMI\AppMedikid\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\jars\libs\internal_impl-22.0.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="D:\GIT_Repositorios\REP_proyDEMI\AppMedikid\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-fee263672da974afbee07a0c10497d18b09e6cdf.jar" />
-    </item>
-    <item
-        jar="D:\GIT_Repositorios\REP_proyDEMI\AppMedikid\app\libs\volley.jar"
+        jar="D:\GITHUB\MEDIKIDS_MOBILE\AppMedikid\app\libs\volley.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="da98f3cd7d2a881902cfacfc2c15d9b5ed604c19">
-        <dex dex="D:\GIT_Repositorios\REP_proyDEMI\AppMedikid\app\build\intermediates\pre-dexed\debug\volley-80d5d25962cf03bbc65d9a1b3dbbf321ec17493e.jar" />
+        <dex dex="D:\GITHUB\MEDIKIDS_MOBILE\AppMedikid\app\build\intermediates\pre-dexed\debug\volley-31daa4203c2414d15d658212fcfdeaa07fddc754.jar" />
+    </item>
+    <item
+        jar="D:\GITHUB\MEDIKIDS_MOBILE\AppMedikid\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
+        <dex dex="D:\GITHUB\MEDIKIDS_MOBILE\AppMedikid\app\build\intermediates\pre-dexed\debug\classes-0a1dcf2c3f854c5381abeecbabd3366bdd3344d1.jar" />
+    </item>
+    <item
+        jar="C:\Users\EDSON\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.0.0\support-annotations-22.0.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
+        <dex dex="D:\GITHUB\MEDIKIDS_MOBILE\AppMedikid\app\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-b516f3f4aa7705fbbb5d143ae317d65cd9a34a56.jar" />
+    </item>
+    <item
+        jar="D:\GITHUB\MEDIKIDS_MOBILE\AppMedikid\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\jars\libs\internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
+        <dex dex="D:\GITHUB\MEDIKIDS_MOBILE\AppMedikid\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-e854f8247e795ee39bcb27d789348e79e65bbcfa.jar" />
+    </item>
+    <item
+        jar="D:\GITHUB\MEDIKIDS_MOBILE\AppMedikid\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
+        <dex dex="D:\GITHUB\MEDIKIDS_MOBILE\AppMedikid\app\build\intermediates\pre-dexed\debug\classes-402a62d83872fbc9c56d5122cd54a2fa8627dfb7.jar" />
     </item>
 
 </items>

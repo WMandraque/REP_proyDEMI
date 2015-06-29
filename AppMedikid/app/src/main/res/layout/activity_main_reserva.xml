@@ -15,8 +15,6 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"/>
 
-
-
     <Spinner
         android:id="@+id/spPaciente"
         android:entries="@array/spPaciente"
@@ -41,8 +39,6 @@
         android:layout_marginBottom="20px"
      />
 
-
-
     <EditText
         android:id="@+id/txtMotivo"
         android:textColorHint="@android:color/white"
@@ -52,7 +48,7 @@
         android:layout_marginRight="50px"
         android:layout_marginLeft="50px"
         android:layout_marginBottom="100px"
-        android:layout_alignBottom="@+id/txtUduario" />
+        android:layout_alignBottom="@+id/txtUduario"
      />
 
     <Button
@@ -66,10 +62,6 @@
         android:layout_marginRight="25px"
         android:layout_marginLeft="25px"
      />
-
-
-
-
 
 
 

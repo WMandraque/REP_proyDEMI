@@ -23,6 +23,15 @@
         android:layout_below="@+id/imgLogo"
         android:layout_marginTop="30px"/>
 
+    <ImageView
+        android:id="@+id/lblPassword"
+        android:layout_width="80px"
+        android:layout_height="80px"
+        android:src="@drawable/pass"
+        android:layout_below="@+id/lblUsuario"
+        android:layout_marginTop="30px"
+        />
+
     <EditText
         android:id="@+id/txtCorreo"
         android:textColorHint="@android:color/white"
@@ -33,16 +42,8 @@
         android:layout_alignRight="@+id/imgLogo"
         android:layout_toRightOf="@+id/lblUsuario"
         android:layout_toEndOf="@+id/lblUsuario"
+        android:singleLine="true"
         android:hint="Usuario"
-        />
-
-    <ImageView
-        android:id="@+id/lblPassword"
-        android:layout_width="80px"
-        android:layout_height="80px"
-        android:src="@drawable/pass"
-        android:layout_below="@+id/lblUsuario"
-        android:layout_marginTop="30px"
         />
 
     <EditText
@@ -55,9 +56,17 @@
         android:layout_alignTop="@+id/lblPassword"
         android:layout_alignRight="@+id/imgLogo"
         android:layout_alignEnd="@+id/imgLogo"
-        android:layout_toRightOf="@+id/lblUsuario"
+        android:layout_toRightOf="@+id/lblPassword"
         android:hint="Password"
         />
+
+    <Space
+        android:id="@+id/space"
+        android:layout_width="20px"
+        android:layout_height="100px"
+        android:layout_below="@+id/lblPassword"
+        android:layout_centerHorizontal="true" />
+
 
     <Button
         android:id="@+id/btnEntrar"
@@ -68,8 +77,9 @@
         android:layout_marginTop="50px"
         android:textSize="10pt"
         android:textStyle="bold"
-        android:layout_below="@+id/lblPassword" />
+        android:layout_below="@+id/space" />
 
+    <!--
     <Button
         android:id="@+id/btnRegistrar"
         android:text="Registrar"
@@ -79,5 +89,5 @@
         android:textSize="10pt"
         android:textStyle="bold"
         android:layout_below="@+id/btnEntrar" />
-
+    -->
 </RelativeLayout>
