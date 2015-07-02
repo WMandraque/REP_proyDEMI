@@ -2,7 +2,7 @@
 <resources>
 
   <array name="spPaciente">
-      <item>   Seleccione Paciente  </item>
+      <item>-- Seleccione --</item>
   </array>
 
 </resources>

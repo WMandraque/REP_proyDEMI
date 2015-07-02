@@ -2,7 +2,6 @@ package com.mandrake.appmedikid;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,16 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.mandrake.application.Configuration;
 import com.mandrake.model.PacienteModel;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
+import com.mandrake.utils.Constantes;
 
 
 public class MainReserva extends Activity
@@ -29,9 +20,6 @@ public class MainReserva extends Activity
     Spinner spPaciente;
     EditText txtFecha, txtMotivo;
     Button btnReservar;
-
-    private ArrayList<PacienteModel> pacientes;
-    private PacienteModel pacienteSeleccionado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +31,10 @@ public class MainReserva extends Activity
         txtMotivo = (EditText)findViewById(R.id.txtMotivo);
         btnReservar = (Button)findViewById(R.id.btnReservarCita);
 
-        //CargarPacientes();
-        CargarSpinnerPaciente();
+        while(spPaciente.getCount() < 1)
+        {
+            CargarSpinnerPacientes();
+        }
     }
 
 
@@ -55,20 +45,8 @@ public class MainReserva extends Activity
         spPaciente.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String idSel = String.valueOf(parent.getItemIdAtPosition(position));
-                String item = parent.getItemAtPosition(position).toString();
 
-                pacienteSeleccionado = null;
-                for(int i=0; i<pacientes.size(); i++)
-                {
-                    pacienteSeleccionado = pacientes.get(i);
-                    if (pacienteSeleccionado.getNombreCompleto().equals(item))
-                        break;
-                }
-
-                Log.d("PACIENTE", String.format("Id: %s - IdPaciente: %s - Nombre: %s", pacienteSeleccionado.getId(),
-                                                                                        pacienteSeleccionado.getIdPaciente(),
-                                                                                        pacienteSeleccionado.getNombreCompleto()));
+                PacienteModel paciente = (PacienteModel)spPaciente.getSelectedItem();
             }
 
             @Override
@@ -101,76 +79,11 @@ public class MainReserva extends Activity
         return super.onOptionsItemSelected(item);
     }
 
-    public void CargarSpinnerPaciente()
+    private void CargarSpinnerPacientes()
     {
-        pacientes = new ArrayList<PacienteModel>();
-
-        PacienteModel entidad = new PacienteModel();
-        entidad.setIdPaciente(0);
-        entidad.setNombreCompleto("-- Seleccione --");
-        pacientes.add(entidad);
-
-        entidad = new PacienteModel();
-        entidad.setIdPaciente(1);
-        entidad.setNombreCompleto("Edson Flores");
-        pacientes.add(entidad);
-
-        entidad = new PacienteModel();
-        entidad.setIdPaciente(2);
-        entidad.setNombreCompleto("Benito Perez");
-        pacientes.add(entidad);
-
-        ArrayAdapter<PacienteModel> adapter = new ArrayAdapter<PacienteModel>(this, android.R.layout.simple_spinner_item, pacientes);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,
+                Constantes.pacientes.toArray(new PacienteModel[Constantes.pacientes.size()]));
         spPaciente.setAdapter(adapter);
-    }
-
-    private void CargarPacientes()
-    {
-        pacientes = new ArrayList<PacienteModel>();
-
-        String url = "http://localhost:24364/Host/ApoderadoService.svc/GetPacientesByApoderado/1";
-        JsonArrayRequest jsonRequest = new JsonArrayRequest(url,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray jsonArray) {
-
-                        if (jsonArray.length() > 0)
-                        {
-                            try
-                            {
-                                JSONObject json;
-                                PacienteModel paciente;
-                                for (int i=0; i<jsonArray.length();i++)
-                                {
-                                    json = jsonArray.getJSONObject(i);
-                                    paciente = new PacienteModel();
-
-                                    paciente.setIdPaciente(json.getInt("IdPaciente"));
-                                    paciente.setNombreCompleto(json.getString("NombreCompleto"));
-
-                                    pacientes.add(paciente);
-                                }
-                            }
-                            catch(Exception e)
-                            {
-                                e.printStackTrace();
-                            }
-
-                            ArrayAdapter<PacienteModel> adapter = new ArrayAdapter<PacienteModel>(MainReserva.this, android.R.layout.simple_spinner_item, pacientes);
-                            spPaciente.setAdapter(adapter);
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError volleyError) {
-
-                    }
-                }
-        );
-
-        Configuration.getInstance().addToRequestQueue(jsonRequest);
-
     }
 
 }

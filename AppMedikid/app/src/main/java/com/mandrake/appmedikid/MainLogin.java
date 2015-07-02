@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,15 +13,17 @@ import android.widget.EditText;
 import com.android.volley.Request.Method;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.mandrake.application.Configuration;
-import com.mandrake.model.ApoderadoModel;
+import com.mandrake.model.PacienteModel;
 import com.mandrake.sqlite.Procesos;
+import com.mandrake.utils.Constantes;
 import com.mandrake.utils.UtilsApp;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 
 public class MainLogin extends Activity
 {
@@ -31,40 +32,25 @@ public class MainLogin extends Activity
 
     private ProgressDialog pDialog;
 
-    final String TAG = MainLogin.class.getSimpleName();
-
-    Procesos serv;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_login);
 
-        serv = new Procesos(MainLogin.this);
-        /*
-        ApoderadoModel entidad = new ApoderadoModel();
-        entidad.setIdApoderado(1);
-        entidad.setNombreCompleto("Edson Flores");
-        entidad.setDNI("12345678");
-        entidad.setContrasena("123");
-        entidad.setEmail("efp@gmail.com");
-
-        serv.InsertarApoderado(entidad);
-        */
-        if (serv.ApoderadoLogueado())
+        if (Procesos.Instance(MainLogin.this).ApoderadoLogueado())
         {
+            CargarPacientes();
             startActivity(new Intent(MainLogin.this, MainPrincipal.class));
             finish();
         }
 
         btnEntrar = (Button)findViewById(R.id.btnEntrar);
-        //btnRegistrar = (Button)findViewById(R.id.btnRegistrar);
         txtCorreo = (EditText)findViewById(R.id.txtCorreo);
         txtClave = (EditText)findViewById(R.id.txtClave);
 
         pDialog = new ProgressDialog(this);
-        pDialog.setMessage("Please wait...");
+        pDialog.setMessage("Espere por favor...");
         pDialog.setCancelable(false);
 
     }
@@ -87,11 +73,8 @@ public class MainLogin extends Activity
                     UtilsApp.Mensaje(getApplicationContext(), "Ingrese sus Credenciales");
                     return;
                 }
+                Login(email, clave);
 
-                //Login(email, clave);
-
-                startActivity(new Intent(MainLogin.this, MainPrincipal.class));
-                finish();
             }
         });
 
@@ -127,49 +110,97 @@ public class MainLogin extends Activity
     {
         showDialog();
 
-        //Service Login
-
-        //String url = "http://localhost:24364/Host/ApoderadoService.svc/LoginApoderado/jcarlos20@gmail.com/123";
-        String url = String.format("http://localhost:24364/Host/ApoderadoService.svc/LoginApoderado/%s/%s", email, pass);
+        //String url = "http://192.168.1.40:50/Host/ApoderadoService.svc/LoginApoderado/jcarlos20@gmail.com/123";
+        String url = String.format(Constantes.URL_MEDIKID_LOGIN, email, pass);
         JsonObjectRequest jsonRequest = new JsonObjectRequest(Method.GET, url, null,
                 new Response.Listener<JSONObject>()
                 {
                     @Override
                     public void onResponse(JSONObject jsonObject) {
-                        Log.d(TAG, jsonObject.toString());
 
                         try {
-                            ApoderadoModel entidad = new ApoderadoModel();
+                            if (jsonObject != null)
+                            {
+                                Constantes.apoderado.setIdApoderado(jsonObject.getInt("IdApoderado"));
+                                Constantes.apoderado.setDNI(jsonObject.getString("Dni"));
+                                Constantes.apoderado.setNombreCompleto(jsonObject.getString("NombreCompleto"));
+                                Constantes.apoderado.setEmail(jsonObject.getString("Email"));
+                                Constantes.apoderado.setContrasena(jsonObject.getString("Contrasena"));
 
-                            entidad.setIdApoderado(jsonObject.getInt("IdApoderado"));
-                            entidad.setDNI(jsonObject.getString("Dni"));
-                            entidad.setNombreCompleto(jsonObject.getString("NombreCompleto"));
-                            entidad.setEmail(jsonObject.getString("Email"));
-                            entidad.setContrasena(jsonObject.getString("Contrasena"));
+                                CargarPacientes();
 
-                            Log.d("Result", entidad.getNombreCompleto());
-                            serv.InsertarApoderado(entidad);
+                                Procesos.Instance(MainLogin.this).InsertarApoderado(Constantes.apoderado);
 
-                        } catch (JSONException e) {
+                                startActivity(new Intent(MainLogin.this, MainPrincipal.class));
+                                finish();
+                            }
+
+                        } catch (JSONException je) {
+                            UtilsApp.InformarError(MainLogin.this, "Json Error", je.getMessage());
+                            je.printStackTrace();
+                        } catch (Exception e){
+                            UtilsApp.InformarError(MainLogin.this, "Ha ocurrido un error inesperado", e.getMessage());
                             e.printStackTrace();
-                            UtilsApp.Mensaje(getApplicationContext(),
-                                        "Error: " + e.getMessage());
+                        } finally {
+                            hideDialog();
                         }
-
-                        hideDialog();
                     }
                 }, new Response.ErrorListener() {
 
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            //Log.d(TAG, "Error: " + error.getMessage());
-                            UtilsApp.Mensaje(getApplicationContext(),
-                                    "Error: " + error.getMessage());
-
+                            UtilsApp.InformarError(MainLogin.this, "Credenciales Incorrectas", error.getMessage());
                             hideDialog();
                         }
                     }
             );
+
+        Configuration.getInstance().addToRequestQueue(jsonRequest);
+    }
+
+
+    private void CargarPacientes()
+    {
+        Constantes.pacientes.add(new PacienteModel(0, 0, "-- Seleccione --"));
+
+        String url = String.format(Constantes.URL_MEDIKID_GETPACIENTES, Constantes.apoderado.getIdApoderado());
+        JsonArrayRequest jsonRequest = new JsonArrayRequest(url,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray jsonArray) {
+
+                        if (jsonArray.length() > 0)
+                        {
+                            try
+                            {
+                                JSONObject json;
+                                PacienteModel paciente;
+                                for (int i=0; i<jsonArray.length();i++)
+                                {
+                                    json = jsonArray.getJSONObject(i);
+                                    paciente = new PacienteModel();
+
+                                    paciente.setId(i);
+                                    paciente.setIdPaciente(json.getInt("IdPaciente"));
+                                    paciente.setNombreCompleto(json.getString("NombreCompleto"));
+
+                                    Constantes.pacientes.add(paciente);
+                                }
+                            }
+                            catch(Exception e)
+                            {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+
+                    }
+                }
+        );
 
         Configuration.getInstance().addToRequestQueue(jsonRequest);
     }

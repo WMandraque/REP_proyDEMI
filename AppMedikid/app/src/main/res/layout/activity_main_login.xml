@@ -43,7 +43,7 @@
         android:layout_toRightOf="@+id/lblUsuario"
         android:layout_toEndOf="@+id/lblUsuario"
         android:singleLine="true"
-        android:hint="Usuario"
+        android:hint="@string/hint_Correo"
         />
 
     <EditText
@@ -57,7 +57,7 @@
         android:layout_alignRight="@+id/imgLogo"
         android:layout_alignEnd="@+id/imgLogo"
         android:layout_toRightOf="@+id/lblPassword"
-        android:hint="Password"
+        android:hint="@string/hint_Contrasena"
         />
 
     <Space
@@ -70,7 +70,7 @@
 
     <Button
         android:id="@+id/btnEntrar"
-        android:text="Entrar"
+        android:text="@string/btn_action_ingresar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"

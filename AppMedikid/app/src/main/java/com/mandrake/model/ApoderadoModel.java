@@ -10,6 +10,17 @@ public class ApoderadoModel
     private String DNI, NombreCompleto;
     private String Email, Contrasena;
 
+    public ApoderadoModel(){}
+
+    public ApoderadoModel(int id, int idApoderado, String DNI, String nombreCompleto, String email, String contrasena) {
+        Id = id;
+        IdApoderado = idApoderado;
+        this.DNI = DNI;
+        NombreCompleto = nombreCompleto;
+        Email = email;
+        Contrasena = contrasena;
+    }
+
     //region Getters & Setters
     public int getId() {
         return Id;

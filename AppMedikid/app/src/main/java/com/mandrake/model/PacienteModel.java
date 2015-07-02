@@ -9,6 +9,15 @@ public class PacienteModel {
     private int IdPaciente;
     private String NombreCompleto;  // Nombre + ApellidoPaterno
 
+    public PacienteModel() {
+    }
+
+    public PacienteModel(int id, int idPaciente, String nombreCompleto) {
+        Id = id;
+        IdPaciente = idPaciente;
+        NombreCompleto = nombreCompleto;
+    }
+
     //region Getters & Setters
     public int getId() {
         return Id;

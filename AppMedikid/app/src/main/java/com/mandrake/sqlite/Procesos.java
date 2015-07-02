@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.mandrake.model.ApoderadoModel;
+import com.mandrake.utils.Constantes;
 import com.mandrake.utils.DBConstantes;
 
 /**
@@ -12,7 +13,16 @@ import com.mandrake.utils.DBConstantes;
  */
 public class Procesos {
 
+    private static Procesos _instance = null;
     private DbHelper dbConnection;
+
+    public static Procesos Instance(Context context)
+    {
+        if (_instance == null)
+            _instance = new Procesos(context);
+
+        return _instance;
+    }
 
     public Procesos(Context context) {
         dbConnection = new DbHelper(context);
@@ -34,14 +44,23 @@ public class Procesos {
         boolean rpta = false;
 
         SQLiteDatabase db = dbConnection.getReadableDatabase();
-        Cursor cursor = db.rawQuery(String.format("SELECT COUNT(*) FROM %s", DBConstantes.TB_APODERADO), null);
+        Cursor cursor = db.rawQuery(String.format("SELECT * FROM %s", DBConstantes.TB_APODERADO), null);
 
         if (cursor != null)
         {
-            cursor.moveToFirst();
-            int value =cursor.getInt(0);
-            if (value > 0)
+            if (cursor.moveToFirst())
+            {
+                ApoderadoModel entidadApoderado = new ApoderadoModel(
+                                                                cursor.getInt(0),
+                                                                cursor.getInt(1),
+                                                                cursor.getString(2),
+                                                                cursor.getString(3),
+                                                                cursor.getString(4),
+                                                                cursor.getString(5)
+                                                             );
+                Constantes.apoderado = entidadApoderado;
                 rpta = true;
+            }
         }
 
         return rpta;

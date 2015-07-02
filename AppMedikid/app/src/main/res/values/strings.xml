@@ -1,10 +1,19 @@
 <resources>
-    <string name="app_name">AppMedikid</string>
+    <string name="app_name">Medikids!</string>
 
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_main_principal">Principal</string>
     <string name="title_activity_main_reserva">Reserva</string>
     <string name="title_activity_main_atencion">Atencion</string>
     <string name="title_activity_main_registro">Registro</string>
+
+    <string name="firstSpinnerText">-- Seleccione --</string>
+
+    <string name="btn_action_ingresar">Ingresar</string>
+    <string name="btn_action_reservar">Reservar</string>
+    <string name="btn_action_main_atenciones">Atenciones</string>
+    <string name="btn_action_main_reservas">Reservas</string>
+
+    <string name="hint_Correo">Correo</string>
+    <string name="hint_Contrasena">Contraseña</string>
 </resources>
