@@ -6,16 +6,6 @@
     android:background="@drawable/fondo"
     >
 
-<!--
-       <ImageView
-           android:id="@+id/imgLogo"
-           android:layout_width="match_parent"
-           android:layout_height="100px"
-           android:src="@drawable/logo"
-           android:layout_marginLeft="20px"
-           android:layout_marginRight="20px"
-
-           /> -->
     <Space
         android:id="@+id/space"
         android:layout_width="20px"
@@ -41,109 +31,18 @@
         android:layout_below="@+id/spPaciente"
         android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:id="@+id/lblFecha"
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Fecha Atencion:"
-        android:textSize="10pt"
-        android:textColor="#fff9ffdf"
-        android:layout_below="@+id/spaceDos"
-        android:layout_marginRight="50px"
-        android:layout_marginLeft="50px"
-        android:layout_marginBottom="10px"
-        />
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/txtFecha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:layout_marginRight="50px"
-        android:layout_marginLeft="50px"
-        android:layout_marginBottom="30px"
-        />
-
-    <TextView
-
-        android:id="@+id/lblMedico"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Medico:"
-        android:textSize="10pt"
-        android:textColor="#fff9ffdf"
-        android:layout_marginRight="50px"
-        android:layout_marginLeft="50px"
-        android:layout_marginBottom="10px"
-        />
-
-    <EditText
-        android:id="@+id/txtMedico"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:layout_marginRight="50px"
-        android:layout_marginLeft="50px"
-        android:layout_marginBottom="30px"
-        />
-
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Diagnostico:"
-        android:textSize="10pt"
-        android:id="@+id/textView6"
-        android:textColor="#fff9ffdf"
-        android:layout_marginRight="50px"
-        android:layout_marginLeft="50px"
-        android:layout_marginBottom="10px"
-        />
-
-    <EditText
-        android:id="@+id/txtDiagnostico"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="50px"
-        android:layout_marginLeft="50px"
-        android:layout_marginBottom="30px"
-        />
-
-    <TextView
-        android:id="@+id/lblReceta"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Receta:"
-        android:textSize="10pt"
-        android:textColor="#fff9ffdf"
-        android:layout_marginRight="50px"
-        android:layout_marginLeft="50px"
-        android:layout_marginBottom="10px"
-        />
-
-    <EditText
-        android:id="@+id/txtReceta"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="50px"
-        android:layout_marginLeft="50px"
-        android:layout_marginBottom="30px"
-        />
-
-    <!--
-        <Button
-            android:id="@+id/btnvolver"
+        <ListView
+            android:id="@+id/lvLista"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Volver"
-            android:textColor="@android:color/black"
-            android:textSize="10pt"
-            android:textStyle="bold"
-            android:layout_marginRight="25px"
-            android:layout_marginLeft="25px"
-            />
-    -->
+            android:layout_height="match_parent"
+            android:divider="#FFFFFF"
+            android:dividerHeight="1dp"></ListView>
 
+    </ScrollView>
 
 </LinearLayout>

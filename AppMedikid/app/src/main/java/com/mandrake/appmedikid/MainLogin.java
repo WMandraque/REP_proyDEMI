@@ -1,7 +1,6 @@
 package com.mandrake.appmedikid;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -25,12 +24,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class MainLogin extends Activity
 {
     private EditText txtCorreo, txtClave;
     private Button btnEntrar;//, btnRegistrar;
-
-    private ProgressDialog pDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -49,10 +48,7 @@ public class MainLogin extends Activity
         txtCorreo = (EditText)findViewById(R.id.txtCorreo);
         txtClave = (EditText)findViewById(R.id.txtClave);
 
-        pDialog = new ProgressDialog(this);
-        pDialog.setMessage("Espere por favor...");
-        pDialog.setCancelable(false);
-
+        UtilsApp.CrearDialog(this, "Espere por favor...");
     }
 
     @Override
@@ -108,7 +104,7 @@ public class MainLogin extends Activity
 
     private void Login(String email, String pass)
     {
-        showDialog();
+        UtilsApp.showDialog();
 
         //String url = "http://192.168.1.40:50/Host/ApoderadoService.svc/LoginApoderado/jcarlos20@gmail.com/123";
         String url = String.format(Constantes.URL_MEDIKID_LOGIN, email, pass);
@@ -142,7 +138,7 @@ public class MainLogin extends Activity
                             UtilsApp.InformarError(MainLogin.this, "Ha ocurrido un error inesperado", e.getMessage());
                             e.printStackTrace();
                         } finally {
-                            hideDialog();
+                            UtilsApp.hideDialog();
                         }
                     }
                 }, new Response.ErrorListener() {
@@ -150,7 +146,7 @@ public class MainLogin extends Activity
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             UtilsApp.InformarError(MainLogin.this, "Credenciales Incorrectas", error.getMessage());
-                            hideDialog();
+                            UtilsApp.hideDialog();
                         }
                     }
             );
@@ -161,6 +157,7 @@ public class MainLogin extends Activity
 
     private void CargarPacientes()
     {
+        Constantes.pacientes = new ArrayList<PacienteModel>();
         Constantes.pacientes.add(new PacienteModel(0, 0, "-- Seleccione --"));
 
         String url = String.format(Constantes.URL_MEDIKID_GETPACIENTES, Constantes.apoderado.getIdApoderado());
@@ -202,18 +199,12 @@ public class MainLogin extends Activity
                 }
         );
 
-        Configuration.getInstance().addToRequestQueue(jsonRequest);
-    }
+        try
+        {
+            Configuration.getInstance().addToRequestQueue(jsonRequest);
+        } catch (NullPointerException npe){
 
-
-    private void showDialog() {
-        if (!pDialog.isShowing())
-            pDialog.show();
-    }
-
-    private void hideDialog() {
-        if (pDialog.isShowing())
-            pDialog.dismiss();
+        }
     }
 
 }

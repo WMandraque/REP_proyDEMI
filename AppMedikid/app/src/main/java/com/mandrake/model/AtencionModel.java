@@ -1,7 +1,5 @@
 package com.mandrake.model;
 
-import java.util.Date;
-
 /**
  * Created by EDSON on 28/06/2015.
  */
@@ -9,7 +7,7 @@ public class AtencionModel {
 
     private int Id;
     private String Medico; // Nombre + Apellido Paterno
-    private Date FechaAtencion;
+    private String FechaAtencion;
     private String Diagnostico, Receta;
 
     //region Getters & Setters
@@ -29,11 +27,11 @@ public class AtencionModel {
         Medico = medico;
     }
 
-    public Date getFechaAtencion() {
+    public String getFechaAtencion() {
         return FechaAtencion;
     }
 
-    public void setFechaAtencion(Date fechaAtencion) {
+    public void setFechaAtencion(String fechaAtencion) {
         FechaAtencion = fechaAtencion;
     }
 
